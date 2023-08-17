@@ -10,7 +10,9 @@ export const load: PageServerLoad = async ({ params }) => {
   //     };
   // }
 
-  const request = await fetch(`${env.MIXCORE_API_URL}/api/v2/rest/common/post-content`);
+  const culture = params.lang == '' ? '' : `culture=${params.lang}`;
+
+  const request = await fetch(`${env.MIXCORE_API_URL}/api/v2/rest/common/post-content?${culture}`);
   const response = await request.json();
 
   // console.log(response);

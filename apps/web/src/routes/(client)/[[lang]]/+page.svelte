@@ -6,9 +6,14 @@
   console.log(data);
 </script>
 
-{#each data.response.items as item}
-  <a href="/post/{item.seoName}"><h1>{@html item.title}</h1></a>
-{/each}
+{#if data.response.items.length > 0}
+  <a href="/" class="btn">Home</a>
+  {#each data.response.items as item}
+    <a href="/post/{item.seoName}"><h1>{@html item.title}</h1></a>
+  {/each}
+{:else}
+  <a href="/vi-vn" class="btn">VI</a> | <a href="/en-us" class="btn">EN</a>
+{/if}
 
 <!-- <h1 class="h1 underline">Web</h1>
 <MyCounterButton />
